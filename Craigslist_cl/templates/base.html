@@ -1,0 +1,72 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Abeers List</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--<link rel="stylesheet" href="{% static "css/style.css" %}">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+        <nav>
+            <div class="container nav-wrapper">
+                <a href="/" class="brand-logo">Abeers List</a>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="/">About</a></li>
+                </ul>
+            </div>
+        </nav>
+            <div class="container">
+                <h1 style="text-align: center">What do you want to search for on Craigslist?</h1>
+                <div class="row">
+
+                    <div class="col s4">
+                        <!-- Promo Content 1 goes here -->
+                        <div class="center">
+                            <i class="large material-icons" style="color: rgb(0, 89, 255)">fast_forward</i>
+                            <p>A fast Craigslist scraper</p>
+                            <p class="light center">Search Craigslist with a beautiful GUI.</p>
+                        </div>
+                    </div>
+
+                    <div class="col s4">
+                        <!-- Promo Content 2 goes here -->
+                        <div class="center">
+                            <i class="large material-icons" style="color: rgb(49, 185, 72)">attach_money</i>
+                            <p>Filter your searches</p>
+                            <p class="light center">This filters things based on price</p>
+                        </div>
+                    </div>
+
+                    <div class="col s4">
+                        <!-- Promo Content 3 goes here -->
+                        <div class="center">
+                            <i class="large material-icons" style="color: rgb(255, 0, 0)">chrome_reader_mode</i>
+                            <p>A much better-looking front-end to Craigslist</p>
+                            <p class="light center">I built this as a project</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    <div class="container">
+        <form action="{% url 'new_search' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="search" id="" placeholder="search for something on Craigslist">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+
+        {% block content%}
+
+        {% endblock content %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
